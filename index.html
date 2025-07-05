@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Transform your images into detailed AI prompts using advanced image analysis. Upload images or paste URLs to generate creative, descriptive prompts for AI image generation tools.">
+  <meta name="keywords" content="AI, image analysis, prompt generation, artificial intelligence, image to text, AI prompts">
+  <meta name="author" content="irfanykywz">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:title" content="Image Prompt Generator">
+  <meta property="og:description" content="Transform your images into detailed AI prompts using advanced image analysis.">
+  <meta property="og:image" content="">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="">
+  <meta property="twitter:title" content="Image Prompt Generator">
+  <meta property="twitter:description" content="Transform your images into detailed AI prompts using advanced image analysis.">
+  <meta property="twitter:image" content="">
+  
+  <title>Image Prompt Generator</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>
+      <img src="logo.png" alt="Logo" class="logo">
+      Image Prompt Generator
+    </h1>
+    <p class="description">Transform your images into detailed AI prompts using advanced image analysis. Upload images or paste URLs to generate creative, descriptive prompts for AI image generation tools.</p>
+    <form id="promptForm">
+      <div class="input-group">
+        <div class="input-column">
+          <div class="input-row">
+            <label for="imageUrl">Image URLs (one per line)</label>
+            <textarea rows="5" cols="50" id="imageUrl" placeholder="Paste image URLs here, one per line..." onchange="addImagesFromUrls()"></textarea>
+          </div>
+        </div>
+        <div class="input-column">
+          <div class="input-row">
+            <label for="imageFile">Upload Images</label>
+            <div class="drop-zone" id="dropZone">
+              <div class="drop-zone-text">📁 Drop images here or click to browse</div>
+              <div class="drop-zone-subtext">Supports multiple images (JPG, PNG, GIF, etc.)</div>
+              <input type="file" id="imageFile" accept="image/*" multiple onchange="addImagesFromFiles()">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-container">
+        <button type="submit" id="submitBtn">Generate Prompts for All Images</button>
+        <button type="button" id="removeAllBtn" class="remove-all-btn">Remove All Images</button>
+        <button type="button" id="exportBtn" class="export-btn">Export to CSV</button>
+      </div>
+    </form>
+    <div class="status" id="status"></div>
+    
+    <!-- Main Table -->
+    <div class="table-container" id="tableContainer" style="display:none;">
+      <table class="result-table" id="mainTable">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Prompt</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="mainBody"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <p>© 2024 Image Prompt Generator by <a href="https://irfanykywz.github.io" target="_blank">irfanykywz</a></p>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html> 
